@@ -17,7 +17,7 @@ export default function BookRecommendations() {
   ]
 
   return (
-    <section id="libri" className="py-20 px-8" style={{ backgroundColor: '#F8F9FA' }}>
+    <section id="libri" className="py-20 px-8 pb-12" style={{ backgroundColor: 'white' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header - same style as About and Partnership */}
         <h2 className="text-5xl font-bold text-center mb-4 flex items-center justify-center gap-3" style={{ color: '#0D47A1' }}>
