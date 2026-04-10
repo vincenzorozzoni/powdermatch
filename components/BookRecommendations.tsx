@@ -3,15 +3,15 @@
 export default function BookRecommendations() {
   const books = [
     {
-      title: "Capire lo Sci",
-      subtitle: "Dai primi movimenti al campione",
+      title: "Capire lo sci: La logica dei movimenti, dal principiante al campione",
+      subtitle: "",
       description: "La guida definitiva per comprendere la biomeccanica dello sci e migliorare la tua tecnica, dal livello principiante fino alle performance da gara.",
       amazonLink: "https://www.amazon.it/Capire-sci-movimenti-principiante-campione/dp/B09M5FPWD5/ref=sr_1_3?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=32TXGUPGX1MCG&keywords=sci&qid=1775814346&s=books&sprefix=sci%2Cstripbooks%2C223&sr=1-3",
       highlights: ["Tecnica biomeccanica", "Progressione didattica", "Esercizi pratici"]
     },
     {
-      title: "Sciare in Sicuro",
-      subtitle: "Guida alla sicurezza sugli sci",
+      title: "Sciare in Sicuro: Guida alla sicurezza sugli sci",
+      subtitle: "",
       description: "Impara a riconoscere i rischi in montagna, gestire le situazioni di emergenza e sciare sempre in sicurezza su qualsiasi tipo di terreno.",
       amazonLink: "https://www.amazon.it/Sciare-sicuro-Guida-sicurezza-sugli/dp/8833248542/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2QFK7ETWRSF9S&keywords=sciare&qid=1775814568&s=books&sprefix=sciare+in+italia%2Cstripbooks%2C221&sr=1-1",
       highlights: ["Prevenzione infortuni", "Gestione rischi", "Sicurezza avalanche"]
@@ -19,15 +19,18 @@ export default function BookRecommendations() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section id="libri" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-            📚 Dalla Pista alla Libreria
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <svg width="40" height="40" viewBox="0 0 512 512" fill="#2563eb">
+              <path d="M96,416h64V96H96V416z M224,416h64V96h-64V416z M0,416h64V96H0V416z M352,96v320h64V96H352z"/>
+            </svg>
+            Dalla Pista alla Libreria
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Hai scelto gli sci giusti. Ora perfeziona tecnica e sicurezza con le letture essenziali per ogni sciatore.
+            Stai per scegliere gli sci giusti. Nel frattempo, perfeziona tecnica e sicurezza con le letture essenziali per ogni sciatore!
           </p>
         </div>
 
@@ -36,22 +39,19 @@ export default function BookRecommendations() {
           {books.map((book, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
             >
               {/* Card Content */}
-              <div className="p-8">
+              <div className="p-8 flex flex-col flex-grow">
                 {/* Title */}
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                     {book.title}
                   </h3>
-                  <p className="text-sm text-gray-500 italic">
-                    {book.subtitle}
-                  </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed flex-grow">
                   {book.description}
                 </p>
 
@@ -76,12 +76,7 @@ export default function BookRecommendations() {
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-4 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  <span className="flex items-center justify-center gap-2">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                      <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                    </svg>
-                    Scopri di più su Amazon
-                  </span>
+                  Scopri di più su Amazon
                 </a>
               </div>
 
@@ -89,13 +84,6 @@ export default function BookRecommendations() {
               <div className="h-2 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600"></div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom note */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500 italic">
-            💡 Letture consigliate per completare la tua preparazione tecnica e di sicurezza in montagna
-          </p>
         </div>
       </div>
     </section>

@@ -35,6 +35,7 @@ export default function Navigation({ onStartQuiz, onGoHome }: NavigationProps) {
           }}>PowderMatch</span>
         </button>
         <ul className="hidden md:flex gap-8 list-none m-0">
+          <li><a href="#libri" className="no-underline font-medium transition-colors" style={{ color: '#1A1A1A' }} onMouseEnter={(e) => e.currentTarget.style.color = '#0D47A1'} onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}>Libri</a></li>
           <li><a href="#about" className="no-underline font-medium transition-colors" style={{ color: '#1A1A1A' }} onMouseEnter={(e) => e.currentTarget.style.color = '#0D47A1'} onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}>Chi Siamo</a></li>
           <li><a href="#partnership" className="no-underline font-medium transition-colors" style={{ color: '#1A1A1A' }} onMouseEnter={(e) => e.currentTarget.style.color = '#0D47A1'} onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}>Partnership</a></li>
           <li><button onClick={onStartQuiz} className="no-underline font-medium transition-colors bg-transparent border-0 cursor-pointer" style={{ color: '#1A1A1A' }} onMouseEnter={(e) => e.currentTarget.style.color = '#0D47A1'} onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}>Inizia Test</button></li>
