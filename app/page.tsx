@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import BookRecommendations from '@/components/BookRecommendations'
 import About from '@/components/About'
 import Partnership from '@/components/Partnership'
 import Privacy from '@/components/Privacy'
@@ -43,6 +44,7 @@ export default function Home() {
       {view === 'home' && (
         <>
           <Hero onStartQuiz={startQuiz} />
+          <BookRecommendations />
           <About />
           <Partnership />
           <Privacy />
