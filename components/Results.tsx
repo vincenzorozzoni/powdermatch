@@ -257,7 +257,7 @@ export default function Results({ answers, onRestart }: ResultsProps) {
 
   function getProducts(key: string): Product[] {
     // Try new matching system first
-    const matchResult = matchSkis(answers)
+    const matchResult = matchSkis(answers as any)
     
     if (matchResult.success && matchResult.skis && matchResult.skis.length > 0) {
       // Convert matchSkis format to Product format
