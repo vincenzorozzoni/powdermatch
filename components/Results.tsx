@@ -13,8 +13,10 @@ interface Product {
   specs: string
   price: string
   officialLink: string
-  amazonLink: string
-  usedLink: string
+  maxisportLink: string | null
+  deporvillageLink: string | null
+  amazonLink: string | null
+  ebayLink: string | null
 }
 
 interface ResultsProps {
@@ -267,8 +269,10 @@ export default function Results({ answers, onRestart }: ResultsProps) {
         specs: ski.specs,
         price: `€${ski.price_min}-${ski.price_max}`,
         officialLink: ski.officialLink,
+        maxisportLink: ski.maxisportLink,
+        deporvillageLink: ski.deporvillageLink,
         amazonLink: ski.amazonLink,
-        usedLink: ski.usedLink
+        ebayLink: ski.ebayLink
       }))
     }
     
@@ -354,49 +358,53 @@ export default function Results({ answers, onRestart }: ResultsProps) {
                     Sito Ufficiale
                   </a>
                   
-                  {/* Amazon */}
-                  <a 
-                    href={p.amazonLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full text-white font-semibold py-3 rounded-lg transition-all"
-                    style={{ backgroundColor: '#FF6B35' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#E85A28'
-                      e.currentTarget.style.transform = 'translateX(4px)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#FF6B35'
-                      e.currentTarget.style.transform = 'translateX(0)'
-                    }}
+                  {/* Maxisport - Coming Soon */}
+                  <button 
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full text-white font-semibold py-3 rounded-lg transition-all opacity-50 cursor-not-allowed"
+                    style={{ backgroundColor: '#6B7280' }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                      <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                    </svg>
+                    Maxisport (Prossimamente)
+                  </button>
+                  
+                  {/* Deporvillage - Coming Soon */}
+                  <button 
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full text-white font-semibold py-3 rounded-lg transition-all opacity-50 cursor-not-allowed"
+                    style={{ backgroundColor: '#6B7280' }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                      <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                    </svg>
+                    Deporvillage (Prossimamente)
+                  </button>
+                  
+                  {/* Amazon - Coming Soon */}
+                  <button 
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full text-white font-semibold py-3 rounded-lg transition-all opacity-50 cursor-not-allowed"
+                    style={{ backgroundColor: '#6B7280' }}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
                       <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
                     </svg>
-                    Compra Nuovo
-                  </a>
+                    Amazon (Prossimamente)
+                  </button>
                   
-                  {/* Used */}
-                  <a 
-                    href={p.usedLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full text-white font-semibold py-3 rounded-lg transition-all"
-                    style={{ backgroundColor: '#4CAF50' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#45A049'
-                      e.currentTarget.style.transform = 'translateX(4px)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#4CAF50'
-                      e.currentTarget.style.transform = 'translateX(0)'
-                    }}
+                  {/* eBay - Coming Soon */}
+                  <button 
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full text-white font-semibold py-3 rounded-lg transition-all opacity-50 cursor-not-allowed"
+                    style={{ backgroundColor: '#6B7280' }}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
                       <path d="M19 1H5c-1.1 0-1.99.9-1.99 2L3 15.93c0 .69.35 1.3.88 1.66L12 23l8.11-5.41c.53-.36.88-.97.88-1.66L21 3c0-1.1-.9-2-2-2zm-7 19.6l-7-4.66V3h14v12.93l-7 4.67zm-2.01-7.42l-2.58-2.59L6 12l4 4 8-8-1.42-1.42z"/>
                     </svg>
-                    Cerca Usato
-                  </a>
+                    eBay Usato (Prossimamente)
+                  </button>
                 </div>
               </div>
             </div>
