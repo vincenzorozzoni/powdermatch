@@ -5,6 +5,7 @@ import StoreLocator from './StoreLocator'
 import SocialShare from './SocialShare'
 import BrandLogo from './BrandLogo'
 import RelatedProducts from './RelatedProducts'
+import matchSkis from './matchSkis'
 
 interface Product {
   brand: string
@@ -255,6 +256,23 @@ export default function Results({ answers, onRestart }: ResultsProps) {
   }
 
   function getProducts(key: string): Product[] {
+    // Try new matching system first
+    const matchResult = matchSkis(answers)
+    
+    if (matchResult.success && matchResult.skis && matchResult.skis.length > 0) {
+      // Convert matchSkis format to Product format
+      return matchResult.skis.map(ski => ({
+        brand: ski.brand,
+        name: ski.name,
+        specs: ski.specs,
+        price: `€${ski.price_min}-${ski.price_max}`,
+        officialLink: ski.officialLink,
+        amazonLink: ski.amazonLink,
+        usedLink: ski.usedLink
+      }))
+    }
+    
+    // Fallback to old database if matching fails
     return productsDB[key] || productsDB['pista_principiante_economico']
   }
 

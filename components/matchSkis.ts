@@ -452,6 +452,54 @@ function determineCategory(answers: QuizAnswers): string {
     }
   }
   
+  if (terrain === 'allmountain') {
+    const level = answers.allmountain_level || 'intermedio'
+    const ratio = answers.allmountain_ratio || '50_50'
+    
+    if (level === 'intermedio') {
+      if (budget === 'economico') return `allmountain_intermedio_economico_${genderCode}`
+      if (ratio === '70_pista') return `allmountain_intermedio_70_pista_${genderCode}`
+      if (ratio === '50_50') return `allmountain_intermedio_50_50_${genderCode}`
+      if (ratio === '30_pista') return `allmountain_intermedio_30_pista_${genderCode}`
+    }
+    
+    if (level === 'avanzato') {
+      if (ratio === '70_pista') return `allmountain_avanzato_70_pista_${genderCode}`
+      if (ratio === '50_50') return `allmountain_avanzato_50_50_${genderCode}`
+      if (ratio === '30_pista') return `allmountain_avanzato_30_pista_${genderCode}`
+      return `allmountain_avanzato_premium_${genderCode}`
+    }
+  }
+  
+  if (terrain === 'freeride') {
+    const level = answers.freeride_level || 'intermedio'
+    
+    if (level === 'principiante') {
+      if (budget === 'economico' || budget === 'medio') return `freeride_principiante_medio_${genderCode}`
+      if (budget === 'alto') return `freeride_principiante_alto_${genderCode}`
+      return `freeride_principiante_premium_${genderCode}`
+    }
+    
+    if (level === 'intermedio') {
+      if (budget === 'economico' || budget === 'medio') return `freeride_intermedio_medio_${genderCode}`
+      if (budget === 'alto') return `freeride_intermedio_alto_${genderCode}`
+      return `freeride_intermedio_premium_${genderCode}`
+    }
+    
+    if (level === 'esperto') {
+      if (budget === 'economico' || budget === 'medio') return `freeride_esperto_medio_${genderCode}`
+      if (budget === 'alto') return `freeride_esperto_alto_${genderCode}`
+      return `freeride_esperto_premium_${genderCode}`
+    }
+  }
+  
+  if (terrain === 'park') {
+    if (budget === 'economico') return `park_economico_${genderCode}`
+    if (budget === 'medio') return `park_medio_${genderCode}`
+    if (budget === 'alto') return `park_alto_${genderCode}`
+    return `park_premium_${genderCode}`
+  }
+  
   // Fallback
   return `pista_intermedio_medio_${genderCode}`
 }
